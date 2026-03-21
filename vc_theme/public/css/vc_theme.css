@@ -1,0 +1,118 @@
+:root {
+    --vc-bg-1: #5b2be0;
+    --vc-bg-2: #3d6df2;
+    --vc-bg-3: #d84fd2;
+    --vc-text: #f8f9ff;
+    --vc-text-muted: rgba(248, 249, 255, 0.78);
+    --vc-border: rgba(255, 255, 255, 0.20);
+    --vc-surface: rgba(255, 255, 255, 0.14);
+    --vc-shadow: 0 10px 30px rgba(24, 20, 60, 0.20);
+}
+
+html,
+body,
+body.vc-theme-enabled {
+    min-height: 100%;
+    background:
+        linear-gradient(135deg, var(--vc-bg-1) 0%, var(--vc-bg-2) 45%, var(--vc-bg-3) 100%) !important;
+    background-attachment: fixed !important;
+}
+
+body.vc-theme-enabled #body,
+body.vc-theme-enabled .main-section,
+body.vc-theme-enabled .layout-main,
+body.vc-theme-enabled .layout-main-section-wrapper,
+body.vc-theme-enabled .layout-main-section,
+body.vc-theme-enabled .page-container,
+body.vc-theme-enabled .page-body,
+body.vc-theme-enabled .standard-page,
+body.vc-theme-enabled .desk-page {
+    background: transparent !important;
+}
+
+.vc-theme-transparent {
+    background: transparent !important;
+}
+
+.vc-theme-glass,
+body.vc-theme-enabled .frappe-card,
+body.vc-theme-enabled .widget,
+body.vc-theme-enabled .form-section,
+body.vc-theme-enabled .report-wrapper,
+body.vc-theme-enabled .modal-content,
+body.vc-theme-enabled .dropdown-menu,
+body.vc-theme-enabled .list-row {
+    background: var(--vc-surface) !important;
+    border: 1px solid var(--vc-border) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--vc-shadow);
+    border-radius: 16px !important;
+    color: var(--vc-text) !important;
+}
+
+body.vc-theme-enabled .navbar,
+body.vc-theme-enabled header.navbar {
+    background: rgba(38, 24, 90, 0.35) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--vc-border) !important;
+}
+
+body.vc-theme-enabled .navbar .nav-link,
+body.vc-theme-enabled .navbar .navbar-brand,
+body.vc-theme-enabled .navbar svg,
+body.vc-theme-enabled .page-head,
+body.vc-theme-enabled .page-title,
+body.vc-theme-enabled h1,
+body.vc-theme-enabled h2,
+body.vc-theme-enabled h3,
+body.vc-theme-enabled h4,
+body.vc-theme-enabled h5,
+body.vc-theme-enabled h6 {
+    color: var(--vc-text) !important;
+}
+
+body.vc-theme-enabled .desk-sidebar,
+body.vc-theme-enabled .standard-sidebar,
+body.vc-theme-enabled .layout-side-section {
+    background: rgba(28, 20, 70, 0.28) !important;
+    backdrop-filter: blur(10px);
+    border-right: 1px solid var(--vc-border) !important;
+}
+
+body.vc-theme-enabled .desk-sidebar a,
+body.vc-theme-enabled .standard-sidebar a,
+body.vc-theme-enabled .layout-side-section a,
+body.vc-theme-enabled .text-muted,
+body.vc-theme-enabled label,
+body.vc-theme-enabled .control-label {
+    color: var(--vc-text-muted) !important;
+}
+
+body.vc-theme-enabled input,
+body.vc-theme-enabled textarea,
+body.vc-theme-enabled select,
+body.vc-theme-enabled .form-control {
+    background: rgba(255, 255, 255, 0.16) !important;
+    color: var(--vc-text) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    border-radius: 12px !important;
+}
+
+body.vc-theme-enabled input::placeholder,
+body.vc-theme-enabled textarea::placeholder {
+    color: rgba(255, 255, 255, 0.62) !important;
+}
+
+body.vc-theme-enabled .btn-primary {
+    background: linear-gradient(135deg, #b34dff 0%, #6d71ff 100%) !important;
+    border: none !important;
+    color: #fff !important;
+}
+
+body.vc-theme-enabled .btn-default,
+body.vc-theme-enabled .btn-secondary {
+    background: rgba(255, 255, 255, 0.14) !important;
+    color: var(--vc-text) !important;
+    border: 1px solid var(--vc-border) !important;
+}
