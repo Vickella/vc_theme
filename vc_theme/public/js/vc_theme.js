@@ -1,57 +1,60 @@
 (() => {
-    const BODY_CLASS = "vc-theme-enabled";
+    const THEME_CLASS = "vc-theme-enabled";
 
     function applyTheme() {
-        document.body.classList.add(BODY_CLASS);
-        document.documentElement.classList.add(BODY_CLASS);
+        document.documentElement.classList.add(THEME_CLASS);
+        document.body.classList.add(THEME_CLASS);
 
-        const transparentSelectors = [
+        const transparent = [
+            ".desk-container",
+            ".main-section",
+            ".layout-main",
             ".layout-main-section-wrapper",
             ".layout-main-section",
-            ".layout-main",
             ".page-container",
             ".page-body",
             ".standard-page",
             ".desk-page",
-            ".main-section",
-            ".content.page-container",
             ".workspace-body",
-            ".widget-group",
-            ".form-page"
+            ".form-page",
+            ".form-layout",
+            ".report-view",
+            ".query-report",
+            ".content",
         ];
 
-        const glassSelectors = [
+        const glass = [
             ".frappe-card",
             ".widget",
+            ".widget-body",
             ".form-section",
+            ".form-dashboard",
+            ".section-body",
             ".report-wrapper",
             ".modal-content",
             ".dropdown-menu",
             ".list-row-container",
             ".list-row",
-            ".section-body",
-            ".dashboard-graph",
-            ".number-card",
-            ".form-dashboard",
-            ".form-grid",
             ".dt-scrollable",
-            ".layout-side-section"
+            ".number-card",
+            ".dashboard-graph",
+            ".layout-side-section",
         ];
 
-        transparentSelectors.forEach((selector) => {
+        transparent.forEach((selector) => {
             document.querySelectorAll(selector).forEach((el) => {
                 el.classList.add("vc-theme-transparent");
             });
         });
 
-        glassSelectors.forEach((selector) => {
+        glass.forEach((selector) => {
             document.querySelectorAll(selector).forEach((el) => {
                 el.classList.add("vc-theme-glass");
             });
         });
     }
 
-    function bootTheme() {
+    function initTheme() {
         applyTheme();
 
         const observer = new MutationObserver(() => {
@@ -60,22 +63,10 @@
 
         observer.observe(document.body, {
             childList: true,
-            subtree: true
+            subtree: true,
         });
 
-        document.addEventListener("click", () => {
-            setTimeout(applyTheme, 50);
-            setTimeout(applyTheme, 200);
-            setTimeout(applyTheme, 500);
-        });
-
-        window.addEventListener("hashchange", () => {
-            setTimeout(applyTheme, 50);
-            setTimeout(applyTheme, 200);
-            setTimeout(applyTheme, 500);
-        });
-
-        if (window.frappe && frappe.router) {
+        if (window.frappe && window.frappe.router) {
             $(document).on("page-change", function () {
                 setTimeout(applyTheme, 50);
                 setTimeout(applyTheme, 200);
@@ -83,12 +74,18 @@
             });
         }
 
+        window.addEventListener("hashchange", () => {
+            setTimeout(applyTheme, 50);
+            setTimeout(applyTheme, 200);
+            setTimeout(applyTheme, 500);
+        });
+
         setInterval(applyTheme, 1500);
     }
 
     if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", bootTheme);
+        document.addEventListener("DOMContentLoaded", initTheme);
     } else {
-        bootTheme();
+        initTheme();
     }
 })();

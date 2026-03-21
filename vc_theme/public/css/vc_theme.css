@@ -2,27 +2,26 @@
     --vc-bg-1: #5b2be0;
     --vc-bg-2: #3d6df2;
     --vc-bg-3: #d84fd2;
-
     --vc-text: #f8f9ff;
     --vc-text-muted: rgba(248, 249, 255, 0.82);
-    --vc-border: rgba(255, 255, 255, 0.18);
+    --vc-border: rgba(255, 255, 255, 0.16);
     --vc-surface: rgba(255, 255, 255, 0.12);
-    --vc-surface-strong: rgba(255, 255, 255, 0.16);
-    --vc-shadow: 0 12px 30px rgba(20, 15, 55, 0.22);
+    --vc-surface-strong: rgba(255, 255, 255, 0.18);
+    --vc-shadow: 0 14px 36px rgba(20, 15, 55, 0.22);
 }
 
 html.vc-theme-enabled,
 body.vc-theme-enabled,
-body[data-route].vc-theme-enabled,
-#body {
+body.vc-theme-enabled #body,
+body.vc-theme-enabled .desk-container {
     min-height: 100% !important;
     background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.16), transparent 18%),
+        radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 18%),
         linear-gradient(135deg, var(--vc-bg-1) 0%, var(--vc-bg-2) 48%, var(--vc-bg-3) 100%) !important;
     background-attachment: fixed !important;
 }
 
-/* MAIN WRAPPERS */
+body.vc-theme-enabled .desk-container,
 body.vc-theme-enabled .main-section,
 body.vc-theme-enabled .layout-main,
 body.vc-theme-enabled .layout-main-section-wrapper,
@@ -31,10 +30,12 @@ body.vc-theme-enabled .page-container,
 body.vc-theme-enabled .page-body,
 body.vc-theme-enabled .standard-page,
 body.vc-theme-enabled .desk-page,
-body.vc-theme-enabled .content,
-body.vc-theme-enabled .page-content,
 body.vc-theme-enabled .workspace-body,
-body.vc-theme-enabled .form-page {
+body.vc-theme-enabled .form-page,
+body.vc-theme-enabled .form-layout,
+body.vc-theme-enabled .report-view,
+body.vc-theme-enabled .query-report,
+body.vc-theme-enabled .content {
     background: transparent !important;
 }
 
@@ -42,21 +43,21 @@ body.vc-theme-enabled .form-page {
     background: transparent !important;
 }
 
-/* GLASS SURFACES */
 .vc-theme-glass,
 body.vc-theme-enabled .frappe-card,
 body.vc-theme-enabled .widget,
+body.vc-theme-enabled .widget-body,
 body.vc-theme-enabled .form-section,
+body.vc-theme-enabled .form-dashboard,
 body.vc-theme-enabled .section-body,
-body.vc-theme-enabled .dashboard-graph,
-body.vc-theme-enabled .number-card,
 body.vc-theme-enabled .report-wrapper,
 body.vc-theme-enabled .modal-content,
 body.vc-theme-enabled .dropdown-menu,
 body.vc-theme-enabled .list-row-container,
 body.vc-theme-enabled .list-row,
 body.vc-theme-enabled .dt-scrollable,
-body.vc-theme-enabled .form-dashboard {
+body.vc-theme-enabled .number-card,
+body.vc-theme-enabled .dashboard-graph {
     background: var(--vc-surface) !important;
     border: 1px solid var(--vc-border) !important;
     backdrop-filter: blur(10px);
@@ -66,28 +67,6 @@ body.vc-theme-enabled .form-dashboard {
     color: var(--vc-text) !important;
 }
 
-/* THE BIG WHITE KILLERS */
-body.vc-theme-enabled .layout-main-section .layout-main-section-wrapper,
-body.vc-theme-enabled .form-layout,
-body.vc-theme-enabled .form-column,
-body.vc-theme-enabled .form-grid,
-body.vc-theme-enabled .grid-body,
-body.vc-theme-enabled .grid-footer,
-body.vc-theme-enabled .result,
-body.vc-theme-enabled .datatable,
-body.vc-theme-enabled .dt-row,
-body.vc-theme-enabled .dt-cell,
-body.vc-theme-enabled .list-subject,
-body.vc-theme-enabled .list-row-head,
-body.vc-theme-enabled .report-view,
-body.vc-theme-enabled .query-report,
-body.vc-theme-enabled .filter-section,
-body.vc-theme-enabled .filters-section {
-    background: transparent !important;
-    color: var(--vc-text) !important;
-}
-
-/* NAVBAR */
 body.vc-theme-enabled .navbar,
 body.vc-theme-enabled header.navbar {
     background: rgba(38, 24, 90, 0.38) !important;
@@ -96,10 +75,18 @@ body.vc-theme-enabled header.navbar {
     -webkit-backdrop-filter: blur(10px);
 }
 
+body.vc-theme-enabled .desk-sidebar,
+body.vc-theme-enabled .standard-sidebar,
+body.vc-theme-enabled .layout-side-section {
+    background: rgba(28, 20, 70, 0.25) !important;
+    border-right: 1px solid var(--vc-border) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
 body.vc-theme-enabled .navbar .nav-link,
 body.vc-theme-enabled .navbar .navbar-brand,
 body.vc-theme-enabled .navbar svg,
-body.vc-theme-enabled .navbar .icon,
 body.vc-theme-enabled .page-head,
 body.vc-theme-enabled .page-title,
 body.vc-theme-enabled .title-text,
@@ -113,28 +100,15 @@ body.vc-theme-enabled h6 {
     fill: var(--vc-text) !important;
 }
 
-/* SIDEBAR */
-body.vc-theme-enabled .desk-sidebar,
-body.vc-theme-enabled .standard-sidebar,
-body.vc-theme-enabled .layout-side-section {
-    background: rgba(28, 20, 70, 0.25) !important;
-    border-right: 1px solid var(--vc-border) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-body.vc-theme-enabled .desk-sidebar a,
-body.vc-theme-enabled .standard-sidebar a,
-body.vc-theme-enabled .layout-side-section a,
 body.vc-theme-enabled .text-muted,
 body.vc-theme-enabled label,
 body.vc-theme-enabled .control-label,
-body.vc-theme-enabled .small,
-body.vc-theme-enabled .ellipsis {
+body.vc-theme-enabled .desk-sidebar a,
+body.vc-theme-enabled .standard-sidebar a,
+body.vc-theme-enabled .layout-side-section a {
     color: var(--vc-text-muted) !important;
 }
 
-/* INPUTS */
 body.vc-theme-enabled input,
 body.vc-theme-enabled textarea,
 body.vc-theme-enabled select,
@@ -152,7 +126,6 @@ body.vc-theme-enabled textarea::placeholder {
     color: rgba(255,255,255,0.65) !important;
 }
 
-/* BUTTONS */
 body.vc-theme-enabled .btn-primary {
     background: linear-gradient(135deg, #b34dff 0%, #6d71ff 100%) !important;
     border: none !important;
@@ -165,22 +138,4 @@ body.vc-theme-enabled .btn.btn-default {
     background: rgba(255,255,255,0.12) !important;
     color: var(--vc-text) !important;
     border: 1px solid var(--vc-border) !important;
-}
-
-/* LOGIN */
-body.for-login,
-body[data-path="login"] {
-    background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.16), transparent 18%),
-        linear-gradient(135deg, var(--vc-bg-1) 0%, var(--vc-bg-2) 48%, var(--vc-bg-3) 100%) !important;
-}
-
-body.for-login .page-card,
-body[data-path="login"] .page-card {
-    background: var(--vc-surface-strong) !important;
-    border: 1px solid var(--vc-border) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 18px !important;
-    box-shadow: var(--vc-shadow);
 }
