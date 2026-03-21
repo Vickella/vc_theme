@@ -1,34 +1,94 @@
-frappe.ready(() => {
-    document.body.classList.add("vc-theme-enabled");
+(() => {
+    const BODY_CLASS = "vc-theme-enabled";
 
-    const applyThemeClasses = () => {
-        document.body.classList.add("vc-theme-enabled");
+    function applyTheme() {
+        document.body.classList.add(BODY_CLASS);
+        document.documentElement.classList.add(BODY_CLASS);
 
-        document.querySelectorAll(
-            ".page-container, .layout-main-section, .standard-page, .desk-page, .page-body"
-        ).forEach((el) => {
-            el.classList.add("vc-theme-transparent");
+        const transparentSelectors = [
+            ".layout-main-section-wrapper",
+            ".layout-main-section",
+            ".layout-main",
+            ".page-container",
+            ".page-body",
+            ".standard-page",
+            ".desk-page",
+            ".main-section",
+            ".content.page-container",
+            ".workspace-body",
+            ".widget-group",
+            ".form-page"
+        ];
+
+        const glassSelectors = [
+            ".frappe-card",
+            ".widget",
+            ".form-section",
+            ".report-wrapper",
+            ".modal-content",
+            ".dropdown-menu",
+            ".list-row-container",
+            ".list-row",
+            ".section-body",
+            ".dashboard-graph",
+            ".number-card",
+            ".form-dashboard",
+            ".form-grid",
+            ".dt-scrollable",
+            ".layout-side-section"
+        ];
+
+        transparentSelectors.forEach((selector) => {
+            document.querySelectorAll(selector).forEach((el) => {
+                el.classList.add("vc-theme-transparent");
+            });
         });
 
-        document.querySelectorAll(
-            ".frappe-card, .widget, .form-section, .report-wrapper, .modal-content, .dropdown-menu"
-        ).forEach((el) => {
-            el.classList.add("vc-theme-glass");
+        glassSelectors.forEach((selector) => {
+            document.querySelectorAll(selector).forEach((el) => {
+                el.classList.add("vc-theme-glass");
+            });
         });
-    };
+    }
 
-    applyThemeClasses();
+    function bootTheme() {
+        applyTheme();
 
-    const observer = new MutationObserver(() => {
-        applyThemeClasses();
-    });
+        const observer = new MutationObserver(() => {
+            applyTheme();
+        });
 
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
 
-    $(document).on("page-change", function () {
-        applyThemeClasses();
-    });
-});
+        document.addEventListener("click", () => {
+            setTimeout(applyTheme, 50);
+            setTimeout(applyTheme, 200);
+            setTimeout(applyTheme, 500);
+        });
+
+        window.addEventListener("hashchange", () => {
+            setTimeout(applyTheme, 50);
+            setTimeout(applyTheme, 200);
+            setTimeout(applyTheme, 500);
+        });
+
+        if (window.frappe && frappe.router) {
+            $(document).on("page-change", function () {
+                setTimeout(applyTheme, 50);
+                setTimeout(applyTheme, 200);
+                setTimeout(applyTheme, 500);
+            });
+        }
+
+        setInterval(applyTheme, 1500);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", bootTheme);
+    } else {
+        bootTheme();
+    }
+})();
