@@ -1,141 +1,339 @@
+/* your_theme_app/public/css/theme.css */
+
 :root {
-    --vc-bg-1: #5b2be0;
-    --vc-bg-2: #3d6df2;
-    --vc-bg-3: #d84fd2;
-    --vc-text: #f8f9ff;
-    --vc-text-muted: rgba(248, 249, 255, 0.82);
-    --vc-border: rgba(255, 255, 255, 0.16);
-    --vc-surface: rgba(255, 255, 255, 0.12);
-    --vc-surface-strong: rgba(255, 255, 255, 0.18);
-    --vc-shadow: 0 14px 36px rgba(20, 15, 55, 0.22);
+    /* Gradient colors - bluish purple pinkish */
+    --vc-gradient-start: #4158D0;
+    --vc-gradient-middle: #C850C0;
+    --vc-gradient-end: #FFCC70;
+    
+    /* UI Colors */
+    --vc-text-primary: #ffffff;
+    --vc-text-secondary: rgba(255, 255, 255, 0.85);
+    --vc-text-muted: rgba(255, 255, 255, 0.7);
+    --vc-border-color: rgba(255, 255, 255, 0.2);
+    --vc-surface-light: rgba(255, 255, 255, 0.1);
+    --vc-surface-medium: rgba(255, 255, 255, 0.15);
+    --vc-surface-dark: rgba(0, 0, 0, 0.2);
+    --vc-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --vc-blur: blur(10px);
 }
 
-html.vc-theme-enabled,
-body.vc-theme-enabled,
-body.vc-theme-enabled #body,
-body.vc-theme-enabled .desk-container {
-    min-height: 100% !important;
-    background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 18%),
-        linear-gradient(135deg, var(--vc-bg-1) 0%, var(--vc-bg-2) 48%, var(--vc-bg-3) 100%) !important;
+/* Force theme on all elements */
+.vc-theme-force,
+.vc-theme-force * {
+    transition: all 0.3s ease;
+}
+
+/* Global background with gradient */
+.vc-theme-force {
+    background: linear-gradient(135deg, var(--vc-gradient-start) 0%, var(--vc-gradient-middle) 50%, var(--vc-gradient-end) 100%) !important;
     background-attachment: fixed !important;
+    min-height: 100vh !important;
 }
 
-body.vc-theme-enabled .desk-container,
-body.vc-theme-enabled .main-section,
-body.vc-theme-enabled .layout-main,
-body.vc-theme-enabled .layout-main-section-wrapper,
-body.vc-theme-enabled .layout-main-section,
-body.vc-theme-enabled .page-container,
-body.vc-theme-enabled .page-body,
-body.vc-theme-enabled .standard-page,
-body.vc-theme-enabled .desk-page,
-body.vc-theme-enabled .workspace-body,
-body.vc-theme-enabled .form-page,
-body.vc-theme-enabled .form-layout,
-body.vc-theme-enabled .report-view,
-body.vc-theme-enabled .query-report,
-body.vc-theme-enabled .content {
+/* Make all main containers transparent */
+.vc-theme-force .desk-container,
+.vc-theme-force .main-section,
+.vc-theme-force .layout-main,
+.vc-theme-force .layout-main-section-wrapper,
+.vc-theme-force .layout-main-section,
+.vc-theme-force .page-container,
+.vc-theme-force .page-body,
+.vc-theme-force .standard-page,
+.vc-theme-force .desk-page,
+.vc-theme-force .workspace-body,
+.vc-theme-force .form-page,
+.vc-theme-force .form-layout,
+.vc-theme-force .report-view,
+.vc-theme-force .query-report,
+.vc-theme-force .content,
+.vc-theme-force .frappe-control,
+.vc-theme-force [data-page-route] {
     background: transparent !important;
 }
 
-.vc-theme-transparent {
-    background: transparent !important;
-}
-
-.vc-theme-glass,
-body.vc-theme-enabled .frappe-card,
-body.vc-theme-enabled .widget,
-body.vc-theme-enabled .widget-body,
-body.vc-theme-enabled .form-section,
-body.vc-theme-enabled .form-dashboard,
-body.vc-theme-enabled .section-body,
-body.vc-theme-enabled .report-wrapper,
-body.vc-theme-enabled .modal-content,
-body.vc-theme-enabled .dropdown-menu,
-body.vc-theme-enabled .list-row-container,
-body.vc-theme-enabled .list-row,
-body.vc-theme-enabled .dt-scrollable,
-body.vc-theme-enabled .number-card,
-body.vc-theme-enabled .dashboard-graph {
-    background: var(--vc-surface) !important;
-    border: 1px solid var(--vc-border) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+/* Glass morphism cards */
+.vc-theme-force .frappe-card,
+.vc-theme-force .widget,
+.vc-theme-force .widget-body,
+.vc-theme-force .form-section,
+.vc-theme-force .form-dashboard,
+.vc-theme-force .section-body,
+.vc-theme-force .report-wrapper,
+.vc-theme-force .modal-content,
+.vc-theme-force .dropdown-menu,
+.vc-theme-force .list-row-container,
+.vc-theme-force .list-row,
+.vc-theme-force .dt-scrollable,
+.vc-theme-force .number-card,
+.vc-theme-force .dashboard-graph,
+.vc-theme-force .custom-actions,
+.vc-theme-force .list-filters,
+.vc-theme-force .list-sidebar,
+.vc-theme-force .timeline,
+.vc-theme-force .comments-section {
+    background: var(--vc-surface-light) !important;
+    backdrop-filter: var(--vc-blur);
+    -webkit-backdrop-filter: var(--vc-blur);
+    border: 1px solid var(--vc-border-color) !important;
+    border-radius: 12px !important;
     box-shadow: var(--vc-shadow) !important;
-    border-radius: 16px !important;
-    color: var(--vc-text) !important;
+    color: var(--vc-text-primary) !important;
 }
 
-body.vc-theme-enabled .navbar,
-body.vc-theme-enabled header.navbar {
-    background: rgba(38, 24, 90, 0.38) !important;
-    border-bottom: 1px solid var(--vc-border) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+/* Navbar styling */
+.vc-theme-force .navbar,
+.vc-theme-force header.navbar,
+.vc-theme-force .navbar-header {
+    background: var(--vc-surface-dark) !important;
+    backdrop-filter: var(--vc-blur);
+    -webkit-backdrop-filter: var(--vc-blur);
+    border-bottom: 1px solid var(--vc-border-color) !important;
 }
 
-body.vc-theme-enabled .desk-sidebar,
-body.vc-theme-enabled .standard-sidebar,
-body.vc-theme-enabled .layout-side-section {
-    background: rgba(28, 20, 70, 0.25) !important;
-    border-right: 1px solid var(--vc-border) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+/* Sidebar styling */
+.vc-theme-force .desk-sidebar,
+.vc-theme-force .standard-sidebar,
+.vc-theme-force .layout-side-section,
+.vc-theme-force .sidebar-menu {
+    background: var(--vc-surface-dark) !important;
+    backdrop-filter: var(--vc-blur);
+    -webkit-backdrop-filter: var(--vc-blur);
+    border-right: 1px solid var(--vc-border-color) !important;
 }
 
-body.vc-theme-enabled .navbar .nav-link,
-body.vc-theme-enabled .navbar .navbar-brand,
-body.vc-theme-enabled .navbar svg,
-body.vc-theme-enabled .page-head,
-body.vc-theme-enabled .page-title,
-body.vc-theme-enabled .title-text,
-body.vc-theme-enabled h1,
-body.vc-theme-enabled h2,
-body.vc-theme-enabled h3,
-body.vc-theme-enabled h4,
-body.vc-theme-enabled h5,
-body.vc-theme-enabled h6 {
-    color: var(--vc-text) !important;
-    fill: var(--vc-text) !important;
+/* Text colors */
+.vc-theme-force,
+.vc-theme-force .navbar .nav-link,
+.vc-theme-force .navbar .navbar-brand,
+.vc-theme-force .navbar svg,
+.vc-theme-force .page-head,
+.vc-theme-force .page-title,
+.vc-theme-force .title-text,
+.vc-theme-force h1,
+.vc-theme-force h2,
+.vc-theme-force h3,
+.vc-theme-force h4,
+.vc-theme-force h5,
+.vc-theme-force h6,
+.vc-theme-force .frappe-card h1,
+.vc-theme-force .frappe-card h2,
+.vc-theme-force .frappe-card h3,
+.vc-theme-force .frappe-card h4,
+.vc-theme-force .frappe-card h5,
+.vc-theme-force .frappe-card h6,
+.vc-theme-force .widget-title {
+    color: var(--vc-text-primary) !important;
 }
 
-body.vc-theme-enabled .text-muted,
-body.vc-theme-enabled label,
-body.vc-theme-enabled .control-label,
-body.vc-theme-enabled .desk-sidebar a,
-body.vc-theme-enabled .standard-sidebar a,
-body.vc-theme-enabled .layout-side-section a {
+.vc-theme-force .text-muted,
+.vc-theme-force label,
+.vc-theme-force .control-label,
+.vc-theme-force .desk-sidebar a,
+.vc-theme-force .standard-sidebar a,
+.vc-theme-force .layout-side-section a,
+.vc-theme-force .small,
+.vc-theme-force .text-extra-muted {
+    color: var(--vc-text-secondary) !important;
+}
+
+/* Input fields */
+.vc-theme-force input,
+.vc-theme-force textarea,
+.vc-theme-force select,
+.vc-theme-force .form-control,
+.vc-theme-force .awesomplete input,
+.vc-theme-force .input-with-feedback,
+.vc-theme-force .dropdown-field,
+.vc-theme-force .datepicker input {
+    background: var(--vc-surface-medium) !important;
+    color: var(--vc-text-primary) !important;
+    border: 1px solid var(--vc-border-color) !important;
+    border-radius: 8px !important;
+}
+
+.vc-theme-force input:focus,
+.vc-theme-force textarea:focus,
+.vc-theme-force select:focus,
+.vc-theme-force .form-control:focus {
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) !important;
+    outline: none !important;
+}
+
+.vc-theme-force input::placeholder,
+.vc-theme-force textarea::placeholder {
     color: var(--vc-text-muted) !important;
 }
 
-body.vc-theme-enabled input,
-body.vc-theme-enabled textarea,
-body.vc-theme-enabled select,
-body.vc-theme-enabled .form-control,
-body.vc-theme-enabled .awesomplete input,
-body.vc-theme-enabled .input-with-feedback {
-    background: rgba(255,255,255,0.14) !important;
-    color: var(--vc-text) !important;
-    border: 1px solid rgba(255,255,255,0.20) !important;
-    border-radius: 12px !important;
+/* Reactive Buttons */
+.vc-theme-force .btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 8px !important;
 }
 
-body.vc-theme-enabled input::placeholder,
-body.vc-theme-enabled textarea::placeholder {
-    color: rgba(255,255,255,0.65) !important;
-}
-
-body.vc-theme-enabled .btn-primary {
-    background: linear-gradient(135deg, #b34dff 0%, #6d71ff 100%) !important;
+/* Primary Buttons */
+.vc-theme-force .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
     border: none !important;
-    color: #fff !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
 }
 
-body.vc-theme-enabled .btn-default,
-body.vc-theme-enabled .btn-secondary,
-body.vc-theme-enabled .btn.btn-default {
-    background: rgba(255,255,255,0.12) !important;
-    color: var(--vc-text) !important;
-    border: 1px solid var(--vc-border) !important;
+.vc-theme-force .btn-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%) !important;
+}
+
+.vc-theme-force .btn-primary:active {
+    transform: translateY(0px) !important;
+}
+
+/* Secondary Buttons */
+.vc-theme-force .btn-secondary,
+.vc-theme-force .btn-default {
+    background: var(--vc-surface-light) !important;
+    color: var(--vc-text-primary) !important;
+    border: 1px solid var(--vc-border-color) !important;
+}
+
+.vc-theme-force .btn-secondary:hover,
+.vc-theme-force .btn-default:hover {
+    background: var(--vc-surface-medium) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Danger Buttons */
+.vc-theme-force .btn-danger {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+    border: none !important;
+    color: white !important;
+}
+
+.vc-theme-force .btn-danger:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(245, 87, 108, 0.3) !important;
+}
+
+/* Success Buttons */
+.vc-theme-force .btn-success {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+    border: none !important;
+    color: white !important;
+}
+
+.vc-theme-force .btn-success:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3) !important;
+}
+
+/* Warning Buttons */
+.vc-theme-force .btn-warning {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%) !important;
+    border: none !important;
+    color: white !important;
+}
+
+.vc-theme-force .btn-warning:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(250, 112, 154, 0.3) !important;
+}
+
+/* Link Buttons */
+.vc-theme-force .btn-link {
+    color: var(--vc-text-primary) !important;
+}
+
+.vc-theme-force .btn-link:hover {
+    color: var(--vc-gradient-end) !important;
+    transform: translateX(2px) !important;
+}
+
+/* Ripple effect on buttons */
+.vc-theme-force .btn::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 0 !important;
+    height: 0 !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: translate(-50%, -50%) !important;
+    transition: width 0.6s, height 0.6s !important;
+    pointer-events: none !important;
+}
+
+.vc-theme-force .btn:active::after {
+    width: 200px !important;
+    height: 200px !important;
+    opacity: 0 !important;
+    transition: 0s !important;
+}
+
+/* Table styling */
+.vc-theme-force .table,
+.vc-theme-force .dt-table {
+    color: var(--vc-text-primary) !important;
+}
+
+.vc-theme-force .table thead th,
+.vc-theme-force .dt-header {
+    background: var(--vc-surface-medium) !important;
+    border-color: var(--vc-border-color) !important;
+    color: var(--vc-text-primary) !important;
+}
+
+.vc-theme-force .table tbody tr:hover {
+    background: var(--vc-surface-light) !important;
+}
+
+/* Modal styling */
+.vc-theme-force .modal-header,
+.vc-theme-force .modal-footer {
+    border-color: var(--vc-border-color) !important;
+}
+
+/* Scrollbar styling */
+.vc-theme-force ::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+.vc-theme-force ::-webkit-scrollbar-track {
+    background: var(--vc-surface-dark) !important;
+    border-radius: 10px !important;
+}
+
+.vc-theme-force ::-webkit-scrollbar-thumb {
+    background: var(--vc-surface-medium) !important;
+    border-radius: 10px !important;
+}
+
+.vc-theme-force ::-webkit-scrollbar-thumb:hover {
+    background: var(--vc-gradient-middle) !important;
+}
+
+/* Dropdown styling */
+.vc-theme-force .dropdown-menu li:hover {
+    background: var(--vc-surface-light) !important;
+}
+
+/* Alert styling */
+.vc-theme-force .alert {
+    background: var(--vc-surface-light) !important;
+    backdrop-filter: var(--vc-blur) !important;
+    border-color: var(--vc-border-color) !important;
+    color: var(--vc-text-primary) !important;
+}
+
+/* Badge styling */
+.vc-theme-force .badge {
+    background: var(--vc-surface-medium) !important;
+    color: var(--vc-text-primary) !important;
 }

@@ -5,8 +5,18 @@ app_description = "Enterprise UI theme for VerityPack"
 app_email = "devs@veritycore.co.zw"
 app_license = "mit"
 
-app_include_css = ["/assets/vc_theme/css/vc_theme.css"]
-app_include_js = ["/assets/vc_theme/js/vc_theme.js"]
+# Apps in this directory that are not in the apps.txt file
+# This is a list of app names that will be treated as sub-apps
+app_include_js = ["js/theme.js"]
+app_include_css = ["css/theme.css"]
 
-web_include_css = ["/assets/vc_theme/css/vc_theme.css"]
-web_include_js = ["/assets/vc_theme/js/vc_theme.js"]
+# Website JS and CSS
+web_include_js = ["js/theme.js"]
+web_include_css = ["css/theme.css"]
+
+# After migrate hook
+after_migrate = "your_theme_app.hooks.after_migrate"
+
+def after_migrate():
+    """Called after migration"""
+    pass
