@@ -1,0 +1,170 @@
+/* VC Theme - Gradient Background */
+html.vc-theme-enabled,
+body.vc-theme-enabled {
+    background: linear-gradient(135deg, #4158D0 0%, #C850C0 50%, #FFCC70 100%) !important;
+    background-attachment: fixed !important;
+    min-height: 100vh !important;
+}
+
+/* Make all containers transparent */
+.vc-theme-enabled .desk-container,
+.vc-theme-enabled .main-section,
+.vc-theme-enabled .layout-main,
+.vc-theme-enabled .layout-main-section-wrapper,
+.vc-theme-enabled .layout-main-section,
+.vc-theme-enabled .page-container,
+.vc-theme-enabled .page-body,
+.vc-theme-enabled .standard-page,
+.vc-theme-enabled .desk-page,
+.vc-theme-enabled .workspace-body,
+.vc-theme-enabled .form-page,
+.vc-theme-enabled .form-layout,
+.vc-theme-enabled .report-view,
+.vc-theme-enabled .query-report,
+.vc-theme-enabled .content {
+    background: transparent !important;
+}
+
+/* Glass morphism cards */
+.vc-theme-enabled .frappe-card,
+.vc-theme-enabled .widget,
+.vc-theme-enabled .widget-body,
+.vc-theme-enabled .form-section,
+.vc-theme-enabled .form-dashboard,
+.vc-theme-enabled .section-body,
+.vc-theme-enabled .report-wrapper,
+.vc-theme-enabled .modal-content,
+.vc-theme-enabled .dropdown-menu,
+.vc-theme-enabled .list-row-container,
+.vc-theme-enabled .list-row,
+.vc-theme-enabled .dt-scrollable,
+.vc-theme-enabled .number-card,
+.vc-theme-enabled .dashboard-graph {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1) !important;
+}
+
+/* Navbar */
+.vc-theme-enabled .navbar,
+.vc-theme-enabled header.navbar {
+    background: rgba(38, 24, 90, 0.38) !important;
+    backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+/* Sidebar */
+.vc-theme-enabled .desk-sidebar,
+.vc-theme-enabled .standard-sidebar,
+.vc-theme-enabled .layout-side-section {
+    background: rgba(28, 20, 70, 0.25) !important;
+    backdrop-filter: blur(10px) !important;
+    border-right: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+/* Text colors */
+.vc-theme-enabled .navbar .nav-link,
+.vc-theme-enabled .navbar .navbar-brand,
+.vc-theme-enabled .page-head,
+.vc-theme-enabled .page-title,
+.vc-theme-enabled .title-text,
+.vc-theme-enabled h1,
+.vc-theme-enabled h2,
+.vc-theme-enabled h3,
+.vc-theme-enabled h4,
+.vc-theme-enabled h5,
+.vc-theme-enabled h6 {
+    color: #ffffff !important;
+}
+
+.vc-theme-enabled .text-muted,
+.vc-theme-enabled label,
+.vc-theme-enabled .control-label {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Input fields */
+.vc-theme-enabled input,
+.vc-theme-enabled textarea,
+.vc-theme-enabled select,
+.vc-theme-enabled .form-control,
+.vc-theme-enabled .awesomplete input,
+.vc-theme-enabled .input-with-feedback {
+    background: rgba(255,255,255,0.14) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-radius: 8px !important;
+}
+
+.vc-theme-enabled input:focus,
+.vc-theme-enabled textarea:focus,
+.vc-theme-enabled select:focus {
+    background: rgba(255,255,255,0.2) !important;
+    border-color: rgba(255,255,255,0.4) !important;
+    outline: none !important;
+}
+
+/* Reactive Buttons */
+.vc-theme-enabled .btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.vc-theme-enabled .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.vc-theme-enabled .btn-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
+}
+
+.vc-theme-enabled .btn-secondary,
+.vc-theme-enabled .btn-default {
+    background: rgba(255,255,255,0.12) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+.vc-theme-enabled .btn-secondary:hover,
+.vc-theme-enabled .btn-default:hover {
+    transform: translateY(-2px) !important;
+    background: rgba(255,255,255,0.2) !important;
+}
+
+/* Danger Buttons */
+.vc-theme-enabled .btn-danger {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+}
+
+.vc-theme-enabled .btn-danger:hover {
+    transform: translateY(-2px) !important;
+}
+
+/* Success Buttons */
+.vc-theme-enabled .btn-success {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+}
+
+.vc-theme-enabled .btn-success:hover {
+    transform: translateY(-2px) !important;
+}
+
+/* Tables */
+.vc-theme-enabled .table,
+.vc-theme-enabled .dt-table {
+    color: #ffffff !important;
+}
+
+.vc-theme-enabled .table thead th,
+.vc-theme-enabled .dt-header {
+    background: rgba(255,255,255,0.1) !important;
+    border-color: rgba(255,255,255,0.2) !important;
+}
+
+.vc-theme-enabled .table tbody tr:hover {
+    background: rgba(255,255,255,0.05) !important;
+}
