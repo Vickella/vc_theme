@@ -8,8 +8,8 @@ app_email = "devs@veritycore.co.zw"
 app_license = "mit"
 
 # Include JS and CSS in desk (this is the key change)
-app_include_js = ["js/vc_theme.js"]
-app_include_css = ["css/vc_theme.css"]
+app_include_js = ["/assets/vc_theme/js/vc_theme.js"]
+app_include_css = ["/assets/vc_theme/css/vc_theme.css"]
 
 # Remove web_include_js and web_include_css if they're causing issues
 # web_include_js = []
